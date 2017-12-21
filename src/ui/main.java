@@ -10,6 +10,8 @@ public class main {
 
         loadCourses();
         System.out.println(TermManager.getInstance());
+        System.out.println(TermManager.getInstance().calculateGPA(false));
+        System.out.println(TermManager.getInstance().calculateGPA(true));
     }
 
 

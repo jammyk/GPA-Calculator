@@ -32,8 +32,8 @@ public class Term {
 
     /**
      *
-     * @param isWeighted
-     * @return  the GPA of term
+     * @param isWeighted    true is weighted, false otherwise
+     * @return              the GPA of term
      */
     public double calculateGPA(boolean isWeighted) {
         double totalGPA = getGPA(isWeighted);           // call to helper
@@ -46,8 +46,8 @@ public class Term {
 
     /**
      * HELPER method for calculateGPA(b: boolean)
-     * @param   isWeighted true if weighted, false otherwise
-     * @return  the total GPA earned this term
+     * @param isWeighted    true if weighted, false otherwise
+     * @return              the total GPA earned this term
      */
     private double getGPA(boolean isWeighted) {
         double totalGPA = 0;
@@ -74,8 +74,12 @@ public class Term {
         return this.term;
     }
 
-    public int getAverage() {
-        return -1;
+    public int calculateAverage() {
+        return -1; // stub
+    }
+
+    private double getAverage() {
+        return -1; // stub
     }
 
     @Override
