@@ -45,7 +45,7 @@ public class Term {
     }
 
     /**
-     * HELPER method for calculateGPA(b: boolean)
+     * HELPER method for getCumulativeGPA(b: boolean)
      * @param isWeighted    true if weighted, false otherwise
      * @return              the total GPA earned this term
      */
@@ -59,7 +59,7 @@ public class Term {
 
 
     /**
-     * HELPER METHOD for calculateGPA(b: boolean)
+     * HELPER METHOD for getCumulativeGPA(b: boolean)
      * @return  total credit taken this term
      */
     private int getTotalCredit() {
@@ -74,12 +74,26 @@ public class Term {
         return this.term;
     }
 
-    public int calculateAverage() {
-        return -1; // stub
+    public double calculateAverage(boolean isWeighted) {
+        double totalAverage = getAverage(isWeighted);           // call to helper
+        if (isWeighted) {
+            return totalAverage / getTotalCredit();
+        } else {
+            return totalAverage / courses.size();
+        }
     }
 
-    private double getAverage() {
-        return -1; // stub
+    /**
+     * HELPER METHOD returns the total percentage received this term
+     * @param isWeighted true if average is weighted, false otherwise
+     * @return
+     */
+    private double getAverage(boolean isWeighted) {
+        int totalGrade = 0;
+        for (Course c : courses) {
+            totalGrade += c.getGradeReceived(isWeighted);
+        }
+        return totalGrade;
     }
 
     @Override

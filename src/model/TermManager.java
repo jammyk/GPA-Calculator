@@ -48,13 +48,22 @@ public class TermManager {
      * @param isWeighted true if GPA is weighted, false otherwise
      * @return cumulative GPA
      */
-    public double calculateGPA(boolean isWeighted) {
+    public double getCumulativeGPA(boolean isWeighted) {
         double cumulativeGPA = 0;
         for (Term t: terms) {
             cumulativeGPA += t.calculateGPA(isWeighted);
         }
         cumulativeGPA = cumulativeGPA / terms.size();
         return (double) Math.round(cumulativeGPA * 100) / 100;
+    }
+
+    public double getCumulativeAverage(boolean isWeighted) {
+        double cumulativeAverage = 0;
+        for (Term t : terms) {
+            cumulativeAverage += t.calculateAverage(isWeighted);
+        }
+        cumulativeAverage = cumulativeAverage / terms.size();
+        return (double) Math.round(cumulativeAverage * 100) / 100;
     }
 
     /**
@@ -67,6 +76,6 @@ public class TermManager {
 
     @Override
     public String toString() {
-        return "You have received a weighted cumulative GPA of: " + calculateGPA(true);
+        return "You have received a weighted cumulative GPA of: " + getCumulativeGPA(true);
     }
 }

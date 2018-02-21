@@ -45,10 +45,12 @@ public class Course {
 
     /**
      *
+     * @param isWeighted    true if weighted, false otherwise
      * @return percentage received
      */
-    public int getGradeReceived() {
-        return this.gradeReceived;
+    public int getGradeReceived(boolean isWeighted) {
+        if (isWeighted) return gradeReceived * creditNumber;
+        return gradeReceived;
     }
 
     /**
@@ -58,11 +60,11 @@ public class Course {
     @Override
     public String toString() {
         return "COURSE INFORMATION ---- \n" +
-                  "TERM      :   "+term.getTermName()+
-                "\nCOURSE    :   "+name+
-                "\nCREDITS   :   "+creditNumber+
-                "\nPERCENTAGE:   "+gradeReceived+
-                "\nGPA       :   "+calculateGPA(false)+
+                  "TERM         :     "+term.getTermName()+
+                "\nCOURSE       :     "+name+
+                "\nCREDITS      :     "+creditNumber+
+                "\nPERCENTAGE   :     "+gradeReceived+
+                "\nGPA          :     "+calculateGPA(false)+
                 "\n";
     }
 
